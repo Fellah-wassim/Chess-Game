@@ -2,7 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
 import Chessboard from "chessboardjsx";
 import { Chess } from "chess.js";
-import Check from "./Check";
+import Check from "./components/Check";
+import GameNav from "./components/GameNav";
+import "./index.css";
 
 function App() {
   const [fen, setFen] = useState("start");
@@ -13,20 +15,23 @@ function App() {
     game.current = new Chess();
   }, []);
 
+  const resetChessBoard = () => {
+    game.current.reset();
+    setFen(game.current.fen());
+  };
+
   const onDrop = ({ sourceSquare, targetSquare }) => {
     try {
       let move = game.current.move({
         from: sourceSquare,
         to: targetSquare,
       });
-      //illegal move check
       if (move === null) return;
-      //update the board
       setFen(game.current.fen());
     } catch (e) {}
   };
 
-  const undoLastMove = () => {
+  const undoMove = () => {
     game.current.undo();
     setFen(game.current.fen());
   };
@@ -36,8 +41,11 @@ function App() {
       {console.log(game.current)}
       {game.current && game.current.inCheck() ? <Check /> : null}
       {game.current && game.current.isGameOver() ? <div>Game over</div> : null}
-      <button onClick={undoLastMove}>Undo</button>
-      <Chessboard position={fen} onDrop={onDrop} />
+      {game.current && game.current.isDraw() ? <div>Draw</div> : null}
+      <GameNav undoMove={undoMove} resetChessBoard={resetChessBoard} />
+      <div className="flex flex-col justify-center items-center">
+        <Chessboard position={fen} sparePieces={true} onDrop={onDrop} />
+      </div>
     </div>
   );
 }
