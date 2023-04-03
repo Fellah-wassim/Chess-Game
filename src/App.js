@@ -22,11 +22,12 @@ function App() {
 
   const onDrop = ({ sourceSquare, targetSquare }) => {
     try {
-      let move = game.current.move({
+      console.log(game);
+      game.current.move({
         from: sourceSquare,
         to: targetSquare,
+        promotion: "q",
       });
-      if (move === null) return;
       setFen(game.current.fen());
     } catch (e) {}
   };
