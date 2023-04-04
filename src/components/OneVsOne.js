@@ -25,9 +25,13 @@ const OneVsOne = () => {
   }, []);
 
   const changeStatus = function () {
-    if (game.current.isGameOver())
-      setStatus(game.current.turn() === "b" ? "White Wins" : "Black Wins");
-    else if (game.current.isDraw()) setStatus("Draw");
+    if (game.current.isGameOver()) {
+      const winBy = game.current.isCheckmate() ? "By Checkmate" : null;
+      const winnerAnnounce =
+        game.current.turn() === "b" ? "White Wins" : "Black Wins";
+
+      setStatus(winnerAnnounce + " " + winBy);
+    } else if (game.current.isDraw()) setStatus("Draw");
     else if (game.current.isCheck()) setStatus("Check");
     else setStatus(game.current.turn() === "b" ? "Black Move" : "White Move");
   };
@@ -52,6 +56,7 @@ const OneVsOne = () => {
         promotion: "q",
       });
       if (move === null) return;
+      console.log(game);
       setFen(game.current.fen());
       setSquareStyle({
         [move.from]: { backgroundColor: "#FFFF8A" },
@@ -78,8 +83,9 @@ const OneVsOne = () => {
         undoMove={undoMove}
         resetChessBoard={resetChessBoard}
         status={status}
+        check={game.current?.isCheck()}
       />
-      <div className="flex flex-col justify-center items-center w-full">
+      <div className="flex items-center justify-center my-0 mx-auto w-fit">
         <Chessboard
           width={screenSize.width <= 580 ? screenSize.width - 20 : 550}
           position={fen}
