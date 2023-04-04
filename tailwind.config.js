@@ -2,7 +2,18 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    colors: {
+      transparent: "transparent",
+      current: "currentColor",
+      black: "#000",
+      red: "#FF0000",
+      darkenRed: "#8B0000",
+      secondBlack: "#2F3130",
+      white: "#fff",
+      secondWhite: "#F8F1E5",
+      lightenBrown: "#F0D9B5",
+      darkenBrown: "#b58863",
+    },
   },
   screens: {
     sm: "640px",
