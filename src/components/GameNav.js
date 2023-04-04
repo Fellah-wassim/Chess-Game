@@ -3,6 +3,7 @@ import "../index.css";
 import backIcon from "../assets/nav/back.svg";
 import undoIcon from "../assets/nav/undo.svg";
 import restartIcon from "../assets/nav/restart.svg";
+import helpIcon from "../assets/nav/help.svg";
 
 function GameNav({ undoMove, resetChessBoard, status, check }) {
   return (
@@ -32,10 +33,10 @@ function GameNav({ undoMove, resetChessBoard, status, check }) {
       <div className="flex justify-between  px-4 py-2 sm:px-16 sm:py-6">
         <button className="flex items-center gap-2 " onClick={undoMove}>
           <img src={undoIcon} alt="undo icon" className="w-[20px]" />
-          <p>Undo</p>
+          <p>Undo Move</p>
         </button>
 
-        <h2>Info</h2>
+        <img src={helpIcon} alt="help icon" className="w-[30px]" />
       </div>
     </div>
   );
