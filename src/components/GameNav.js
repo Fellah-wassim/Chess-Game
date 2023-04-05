@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../index.css";
 import backIcon from "../assets/nav/back.svg";
 import undoIcon from "../assets/nav/undo.svg";
@@ -10,10 +11,13 @@ function GameNav({ undoMove, resetChessBoard, status, check }) {
     <div className="text-bold text-white text-xl">
       <div className="flex flex-col bg-lightenBrown text-xl px-4 py-2 sm:px-12 sm:py-6">
         <div className="flex justify-between items-center">
-          <button className="flex items-center justify-center gap-2 bg-darkenBrown p-2 rounded-md hover:bg-secondBlack duration-150">
-            <img src={backIcon} alt="back icon" className="w-[25px]" />
-            <p>Main Menu</p>
-          </button>
+          <Link to="/">
+            <button className="flex items-center justify-center gap-2 bg-darkenBrown p-2 rounded-md hover:bg-secondBlack duration-150">
+              <img src={backIcon} alt="back icon" className="w-[25px]" />
+              <p>Main Menu</p>
+            </button>
+          </Link>
+
           <h1
             className={`${
               check ? "bg-darkenRed text-white" : "bg-white text-secondBlack "
