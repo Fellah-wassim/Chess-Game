@@ -31,7 +31,7 @@ function GameNav({ undoMove, resetChessBoard, status, check }) {
         </div>
       </div>
       <div className="flex justify-between  px-4 py-2 sm:px-16 sm:py-6">
-        <button className="flex items-center gap-2 " onClick={undoMove}>
+        <button className="flex items-center gap-2" onClick={undoMove}>
           <img src={undoIcon} alt="undo icon" className="w-[20px]" />
           <p>Undo Move</p>
         </button>
