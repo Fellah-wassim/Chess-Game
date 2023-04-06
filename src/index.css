@@ -4,12 +4,12 @@
 
 body {
   margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Alkatra", cursive;
+  overflow: hidden;
 }
 
 code {
-  font-family: "Alkatra", serif;
+  font-family: "Alkatra", cursive;
 }
 
 input[type="range"] {
@@ -47,16 +47,25 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
 }
 
 .menu li {
-  background-color: #b58863;
+  background-color: #2f3130;
   padding: 0.5rem 1rem;
   border-radius: 10px;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
   text-align: center;
   border: 2px solid #2f3130;
   margin-bottom: 10px;
 }
 
 .menu li:hover {
-  background-color: #2f3130;
-  color: #fff;
+  background-color: #f0d9b5;
+  color: #2f3130;
+}
+
+.nav-btn svg {
+  fill: #fff;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover svg {
+  fill: #2f3130;
 }

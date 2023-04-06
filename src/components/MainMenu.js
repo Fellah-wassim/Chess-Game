@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../index.css";
 import logo from "../assets/mainMenu/logo.jpg";
@@ -9,11 +9,10 @@ import githubIcon from "../assets/mainMenu/gh.svg";
 import principalMusic from "../assets/mainMenu/principalSound.wav";
 import volumeOff from "../assets/mainMenu/volume-off.svg";
 import volumeOn from "../assets/mainMenu/volume-on.svg";
+import strategyPic from "../assets/mainMenu/strategy.png";
 
 const MainMenu = () => {
-  const [backgroundMusic, setBackgroundMusic] = useState(
-    new Audio(principalMusic)
-  );
+  const [backgroundMusic] = useState(new Audio(principalMusic));
 
   const startBackgroundMusic = function () {
     if (backgroundMusic.paused) backgroundMusic.play();
@@ -31,32 +30,76 @@ const MainMenu = () => {
     backgroundMusic.volume = newVolume;
     startBackgroundMusic();
   };
+  const backgroundsURL = [
+    "https://images.pexels.com/photos/10626015/pexels-photo-10626015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/277092/pexels-photo-277092.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/1576849/pexels-photo-1576849.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/129742/pexels-photo-129742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 ",
+    "https://images.pexels.com/photos/163427/chess-figure-game-play-163427.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/6114992/pexels-photo-6114992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  ];
+
+  const [currentBackgroundURL, setCurrentBackgroundURL] = useState(
+    backgroundsURL[0]
+  );
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      changeBackgroundImage();
+    }, 5000);
+    return () => clearInterval(intervalId);
+  });
+
+  const changeBackgroundImage = () => {
+    const currentIndex = backgroundsURL.indexOf(currentBackgroundURL);
+    const nextIndex = (currentIndex + 1) % backgroundsURL.length;
+    setCurrentBackgroundURL(backgroundsURL[nextIndex]);
+  };
+
   return (
-    <div className="main-menu-container h-[100%] flex justify-center items-center text-bold bg-secondBlack text-black  text-xl">
-      <div className="flex flex-col gap-8 items-center w-[90%] md:w-[50%] h-[80%] bg-lightenBrown border-2 border-black rounded-md p-6">
-        <div className="w-[100px] rounded-[50%] overflow-hidden border-2 border-black">
+    <div
+      style={{
+        backgroundImage: `url(${currentBackgroundURL}})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        transition: "background 2s",
+      }}
+      className="main-menu-container h-[100%] flex justify-center items-center text-bold bg-secondBlack text-white  text-xl"
+    >
+      <div className="absolute left-0 top-0"></div>
+      <div className="relative flex flex-col gap-6 items-center overflow-hidden w-[90%] md:w-[50%] h-[80%] bg-secondWhite border-2 border-black rounded-md p-6">
+        <div className="w-[100px] min-h-[100px] rounded-[50%] overflow-hidden border-2 border-secondBlack">
           <img src={logo} alt="logo" />
         </div>
-        <h1 className="text-3xl text-black font-serif">Welcome</h1>
-        <ul className="menu list-none">
+        <h1 className="text-4xl font-serif text-black text-bold">WELCOME</h1>
+        <ul className="menu list-none text-2xl">
           <Link to="/2player">
             <li>
-              <button className="">Play</button>
+              <button className="">
+                <p>Play</p>
+              </button>
             </li>
           </Link>
           <Link to="/">
             <li onClick={startBackgroundMusic}>
-              <button>Settings</button>
+              <button>
+                <p>Settings</p>
+              </button>
             </li>
           </Link>
           <Link to="/">
-            <li onClick={pauseBackgroundMusic}>Help</li>
+            <li onClick={pauseBackgroundMusic}>
+              <p>Help</p>
+            </li>
           </Link>
           <Link to="/">
-            <li>Contact</li>
+            <li>
+              <p>Contact</p>
+            </li>
           </Link>
         </ul>
-        <div className="flex">
+        <div className="flex gap-2">
           <img
             src={volume ? volumeOn : volumeOff}
             alt="volume icon"
@@ -71,21 +114,35 @@ const MainMenu = () => {
             onChange={handleVolumeChange}
           />
         </div>
-
         <div className="flex gap-2">
           <a href="https://github.com/Fellah-wassim" target="blank">
-            <img src={githubIcon} alt="github icon" />
+            <img src={githubIcon} alt="github icon" className="w-[30px]" />
           </a>
           <a href="https://www.linkedin.com/in/wassim-fellah-921a5921a/">
-            <img src={instagramIcon} alt="instagram Icon" />
+            <img
+              src={instagramIcon}
+              alt="instagram Icon"
+              className="w-[30px]"
+            />
           </a>
-          <a href="#">
-            <img src={fbIcon} alt="facebook icon" />
+          <a href="https://www.facebook.com/wassimcraizy.box?mibextid=ZbWKwL">
+            <img src={fbIcon} alt="facebook icon" className="w-[30px]" />
           </a>
           <a href="https://www.linkedin.com/in/wassim-fellah-921a5921a/">
-            <img src={linkedinIcon} alt="linkedin icon" />
+            <img src={linkedinIcon} alt="linkedin icon" className="w-[30px]" />
           </a>
         </div>
+
+        <img
+          src={strategyPic}
+          alt="strategy png"
+          className="absolute right-6 bottom-6 w-[8%]"
+        />
+        <img
+          src={strategyPic}
+          alt="strategy png"
+          className="absolute left-6 bottom-6 w-[8%] scale-x-[-1]"
+        />
       </div>
     </div>
   );
