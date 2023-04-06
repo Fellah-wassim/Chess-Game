@@ -26,14 +26,22 @@ const OneVsOne = () => {
 
   const changeStatus = function () {
     if (game.current.isGameOver()) {
-      const winBy = game.current.isCheckmate() ? "By Checkmate" : null;
+      if (game.current.isDraw()) {
+        if (game.current.isStalemate()) setStatus("Draw By Stalemate");
+        if (game.current.isInsufficientMaterial())
+          setStatus("Draw By Insufficient Material");
+        if (game.current.isThreefoldRepetition())
+          setStatus("Draw By Repetition");
+        return;
+      }
       const winnerAnnounce =
         game.current.turn() === "b" ? "White Wins" : "Black Wins";
-
-      setStatus(winnerAnnounce + " " + winBy);
-    } else if (game.current.isDraw()) setStatus("Draw");
-    else if (game.current.isCheck()) setStatus("Check");
-    else setStatus(game.current.turn() === "b" ? "Black Move" : "White Move");
+      setStatus(winnerAnnounce + " By Checkmate");
+    } else {
+      game.current.isCheck()
+        ? setStatus("Check")
+        : setStatus(game.current.turn() === "b" ? "Black Move" : "White Move");
+    }
   };
   let game = useRef(null);
 
@@ -84,6 +92,7 @@ const OneVsOne = () => {
         resetChessBoard={resetChessBoard}
         status={status}
         check={game.current?.isCheck()}
+        game={game}
       />
       <div className="flex items-center justify-center my-0 mx-auto w-fit">
         <Chessboard
