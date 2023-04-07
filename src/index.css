@@ -69,3 +69,12 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
 .nav-btn:hover svg {
   fill: #2f3130;
 }
+
+.social-media-icons {
+  transition: opacity 0.4s ease;
+}
+
+.social-media-icons:hover {
+  opacity: 80%;
+  transform: scale(1.04);
+}
