@@ -53,7 +53,9 @@ const MainMenu = () => {
   const changeBackgroundImage = () => {
     const currentIndex = backgroundsURL.indexOf(currentBackgroundURL);
     const nextIndex = (currentIndex + 1) % backgroundsURL.length;
-    setCurrentBackgroundURL(backgroundsURL[nextIndex]);
+    const img = new Image();
+    img.setAttribute("src", backgroundsURL[nextIndex]);
+    img.onload = () => setCurrentBackgroundURL(backgroundsURL[nextIndex]);
   };
 
   return (
@@ -81,7 +83,7 @@ const MainMenu = () => {
               </button>
             </li>
           </Link>
-          <Link to="/">
+          <Link to="/vsBot">
             <li onClick={startBackgroundMusic}>
               <button>
                 <p>Settings</p>
@@ -116,20 +118,32 @@ const MainMenu = () => {
         </div>
         <div className="flex gap-2">
           <a href="https://github.com/Fellah-wassim" target="blank">
-            <img src={githubIcon} alt="github icon" className="w-[30px]" />
+            <img
+              src={githubIcon}
+              alt="github icon"
+              className="social-media-icons w-[30px]"
+            />
           </a>
           <a href="https://www.linkedin.com/in/wassim-fellah-921a5921a/">
             <img
               src={instagramIcon}
               alt="instagram Icon"
-              className="w-[30px]"
+              className="social-media-icons w-[30px]"
             />
           </a>
           <a href="https://www.facebook.com/wassimcraizy.box?mibextid=ZbWKwL">
-            <img src={fbIcon} alt="facebook icon" className="w-[30px]" />
+            <img
+              src={fbIcon}
+              alt="facebook icon"
+              className="social-media-icons w-[30px]"
+            />
           </a>
           <a href="https://www.linkedin.com/in/wassim-fellah-921a5921a/">
-            <img src={linkedinIcon} alt="linkedin icon" className="w-[30px]" />
+            <img
+              src={linkedinIcon}
+              alt="linkedin icon"
+              className="social-media-icons w-[30px]"
+            />
           </a>
         </div>
 
