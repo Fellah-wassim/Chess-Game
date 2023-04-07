@@ -4,6 +4,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import OneVsOne from "./components/OneVsOne";
 import "./index.css";
 import MainMenu from "./components/MainMenu";
+import HowToPlay from "./components/HowToPlay";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,10 +20,7 @@ root.render(
             </div>
           }
         />
-        <Route
-          path="/vsBot"
-          element={<div className="bg-secondBlack h-screen"></div>}
-        />
+        <Route path="/how-to-play" element={<HowToPlay />} />
       </Routes>
     </BrowserRouter>
   </React.Fragment>

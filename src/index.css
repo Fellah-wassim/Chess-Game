@@ -5,7 +5,6 @@
 body {
   margin: 0;
   font-family: "Alkatra", cursive;
-  overflow: hidden;
 }
 
 code {
@@ -77,4 +76,26 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
 .social-media-icons:hover {
   opacity: 80%;
   transform: scale(1.04);
+}
+
+.documentation-ul li {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.links li {
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.links li:hover {
+  color: #8b0000;
+}
+
+iframe {
+  margin: 0 auto;
+  width: 80%;
+  height: 300px;
+  padding: 1rem;
 }
