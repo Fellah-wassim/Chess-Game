@@ -19,6 +19,10 @@ root.render(
             </div>
           }
         />
+        <Route
+          path="/vsBot"
+          element={<div className="bg-secondBlack h-screen"></div>}
+        />
       </Routes>
     </BrowserRouter>
   </React.Fragment>
