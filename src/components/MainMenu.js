@@ -67,10 +67,10 @@ const MainMenu = () => {
         backgroundPosition: "center",
         transition: "background 2s",
       }}
-      className="main-menu-container h-[100%] flex justify-center items-center text-bold bg-secondBlack text-white  text-xl"
+      className="main-menu-container h-[100vh] flex justify-center items-center text-bold bg-secondBlack text-white  text-xl"
     >
       <div className="absolute left-0 top-0"></div>
-      <div className="relative flex flex-col gap-6 items-center overflow-hidden w-[90%] md:w-[50%] h-[80%] bg-secondWhite border-2 border-black rounded-md p-6">
+      <div className="relative flex flex-col gap-6 items-center overflow-hidden w-[90%] md:w-[50%] min-h-[80%] bg-secondWhite border-2 border-black rounded-md p-6">
         <div className="w-[100px] min-h-[100px] rounded-[50%] overflow-hidden border-2 border-secondBlack">
           <img src={logo} alt="logo" />
         </div>
@@ -84,7 +84,7 @@ const MainMenu = () => {
             </li>
           </Link>
           <Link to="/how-to-play">
-            <li onClick={startBackgroundMusic}>
+            <li>
               <button>
                 <p>Learn To Play</p>
               </button>
