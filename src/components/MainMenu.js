@@ -79,25 +79,25 @@ const MainMenu = () => {
           <Link to="/2player">
             <li>
               <button className="">
-                <p>Play</p>
+                <p>Play Chess</p>
               </button>
             </li>
           </Link>
-          <Link to="/vsBot">
+          <Link to="/how-to-play">
             <li onClick={startBackgroundMusic}>
               <button>
-                <p>Settings</p>
+                <p>Learn To Play</p>
               </button>
             </li>
           </Link>
           <Link to="/">
             <li onClick={pauseBackgroundMusic}>
-              <p>Help</p>
+              <p>More Games</p>
             </li>
           </Link>
           <Link to="/">
             <li>
-              <p>Contact</p>
+              <p>Contact Me</p>
             </li>
           </Link>
         </ul>
