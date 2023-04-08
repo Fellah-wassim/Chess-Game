@@ -15,7 +15,7 @@ root.render(
         <Route
           path="/2player"
           element={
-            <div className="bg-secondBlack h-screen">
+            <div className="bg-secondBlack h-fit">
               <OneVsOne />
             </div>
           }
