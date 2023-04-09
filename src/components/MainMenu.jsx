@@ -78,7 +78,7 @@ const MainMenu = () => {
         </div>
         <h1 className="text-4xl font-serif text-black text-bold">WELCOME</h1>
         <ul className="menu list-none text-2xl">
-          <Link to="/2player">
+          <Link to="/play">
             <li>
               <button className="">
                 <p>Play Chess</p>
