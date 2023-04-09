@@ -13,9 +13,10 @@ const OneVsOneTimer = () => {
     height: window.innerHeight,
   });
 
-  const [whitePlayerTime, setWhitePlayerTime] = useState(0.2 * 60);
-  const [blackPlayerTime, setBlackPlayerTime] = useState(1 * 60);
-  const [whiteTimeIsRunning, setWhiteTimeIsRunning] = useState(true);
+  const [gameOverByTimeout, setGameOverByTimeout] = useState(false);
+  const [whitePlayerTime, setWhitePlayerTime] = useState(10 * 60);
+  const [blackPlayerTime, setBlackPlayerTime] = useState(10 * 60);
+  const [whiteTimeIsRunning, setWhiteTimeIsRunning] = useState(false);
   const [blackTimeIsRunning, setBlackTimeIsRunning] = useState(false);
   const [isWhiteTimeout, setIsWhiteTimeout] = useState(false);
   const [isBlackTimeout, setIsBlackTimeout] = useState(false);
@@ -36,6 +37,7 @@ const OneVsOneTimer = () => {
     if (whiteTimeIsRunning) {
       if (whitePlayerTime === 0) setIsWhiteTimeout(true);
       if (isWhiteTimeout || game.current.isGameOver()) {
+        setGameOverByTimeout(true);
         setStatus("Black Wins By Timeout");
         setWhiteTimeIsRunning(false);
         setBlackTimeIsRunning(false);
@@ -48,6 +50,7 @@ const OneVsOneTimer = () => {
     if (blackTimeIsRunning) {
       if (blackPlayerTime === 0) setIsBlackTimeout(true);
       if (isBlackTimeout || game.current.isGameOver()) {
+        setGameOverByTimeout(true);
         setStatus("White Wins By Timeout");
         setWhiteTimeIsRunning(false);
         setBlackTimeIsRunning(false);
@@ -82,10 +85,11 @@ const OneVsOneTimer = () => {
   const resetTimes = () => {
     setWhitePlayerTime(10 * 60);
     setBlackPlayerTime(10 * 60);
-    setWhiteTimeIsRunning(true);
+    setWhiteTimeIsRunning(false);
     setBlackTimeIsRunning(false);
     setIsWhiteTimeout(false);
     setIsBlackTimeout(false);
+    setGameOverByTimeout(false);
   };
   const pauseWhiteTime = () => {
     setWhiteTimeIsRunning(false);
@@ -135,6 +139,7 @@ const OneVsOneTimer = () => {
         promotion: "q",
       });
       if (move === null) return;
+      if (game.current.history.length === 1) setBlackTimeIsRunning(true);
       if (game.current.turn() === "b") {
         pauseWhiteTime();
         playBlackTime();
@@ -163,7 +168,7 @@ const OneVsOneTimer = () => {
   };
 
   return (
-    <div className="h-[100vh]">
+    <div className="h-[100vh] bg-secondBlack relative">
       <GameNavTimer
         undoMove={undoMove}
         resetChessBoard={resetChessBoard}
@@ -171,26 +176,34 @@ const OneVsOneTimer = () => {
         check={game.current?.isCheck()}
         game={game}
         resetTimes={resetTimes}
+        gameOverByTimeout={gameOverByTimeout}
       />
-      <div className="chessboard-container flex items-center justify-center my-0 mx-auto w-fit">
-        <div className="flex">
-          <div>
-            {Wminutes.toString().padStart(2, "0")}:
-            {Wseconds.toString().padStart(2, "0")}
-          </div>
-          <div>gg</div>
-          <div>
-            {Bminutes.toString().padStart(2, "0")}:
-            {Bseconds.toString().padStart(2, "0")}
+      <div className=" chessboard-container flex items-center justify-center my-0 mx-auto w-fit">
+        <div className="flex flex-col gap-1 font-bold text-xl">
+          <div
+            className={`${
+              Bminutes < 1 ? "bg-darkenRed text-white" : "bg-white"
+            }  p-2 py-1 w-[20%] self-start text-center border-2 rounded-lg`}
+          >
+            {`${Bminutes.toString().padStart(2, "0")} : 
+            ${Bseconds.toString().padStart(2, "0")}`}
           </div>
           <Chessboard
-            width={screenSize.width <= 580 ? screenSize.width - 20 : 550}
+            width={screenSize.width <= 580 ? screenSize.width - 20 : 500}
             position={fen}
             onDrop={onDrop}
             squareStyles={squareStyle}
             onSquareRightClick={onSquareRightClick}
             onSquareClick={() => setSquareStyle({})}
           />
+          <div
+            className={`${
+              Wminutes < 1 ? "bg-darkenRed text-white" : "bg-white"
+            }  p-2 py-1 w-[20%] self-end text-center border-2 rounded-lg`}
+          >
+            {`${Wminutes.toString().padStart(2, "0")} : 
+            ${Wseconds.toString().padStart(2, "0")}`}
+          </div>
         </div>
       </div>
     </div>

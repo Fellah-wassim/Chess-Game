@@ -86,7 +86,7 @@ const OneVsOne = () => {
   };
 
   return (
-    <div className="h-[100vh]">
+    <div className="h-[100vh] bg-secondBlack">
       <GameNav
         undoMove={undoMove}
         resetChessBoard={resetChessBoard}
