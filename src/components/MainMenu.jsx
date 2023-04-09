@@ -88,7 +88,7 @@ const MainMenu = () => {
           <Link to="/how-to-play">
             <li>
               <button>
-                <p>Learn To Play</p>
+                <p>How To Play</p>
               </button>
             </li>
           </Link>

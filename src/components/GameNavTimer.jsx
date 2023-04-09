@@ -87,8 +87,9 @@ function GameNavTimer({
           <img src={undoIcon} alt="undo icon" className="w-[20px] " />
           <p className="text-white">Undo Move</p>
         </button>
-
-        <img src={helpIcon} alt="help icon" className="w-[30px]" />
+        <Link to="/how-to-play">
+          <img src={helpIcon} alt="help icon" className="w-[30px]" />
+        </Link>
       </div>
     </div>
   );

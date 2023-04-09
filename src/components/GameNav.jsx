@@ -72,7 +72,9 @@ function GameNav({ undoMove, resetChessBoard, status, check, game }) {
           <p className="text-white">Undo Move</p>
         </button>
 
-        <img src={helpIcon} alt="help icon" className="w-[30px]" />
+        <Link to="/how-to-play">
+          <img src={helpIcon} alt="help icon" className="w-[30px]" />
+        </Link>
       </div>
     </div>
   );
