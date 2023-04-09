@@ -5,6 +5,7 @@ import OneVsOne from "./components/OneVsOne";
 import "./index.css";
 import MainMenu from "./components/MainMenu";
 import HowToPlay from "./components/HowToPlay";
+import OneVsOneTimer from "./components/OneVsOneTimer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,7 +17,8 @@ root.render(
           path="/2player"
           element={
             <div className="bg-secondBlack h-fit">
-              <OneVsOne />
+              {/* <OneVsOne /> */}
+              <OneVsOneTimer />
             </div>
           }
         />
