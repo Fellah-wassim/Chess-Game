@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import PlayMenu from "./components/PlayMenu";
 import OneVsOne from "./components/OneVsOne";
 import "./index.css";
 import MainMenu from "./components/MainMenu";
@@ -13,16 +14,10 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainMenu />} />
-        <Route
-          path="/2player"
-          element={
-            <div className="bg-secondBlack h-fit">
-              {/* <OneVsOne /> */}
-              <OneVsOneTimer />
-            </div>
-          }
-        />
+        <Route path="/play" element={<PlayMenu />} />
         <Route path="/how-to-play" element={<HowToPlay />} />
+        <Route path="/2player/withoutTime" element={<OneVsOne />} />
+        <Route path="/2player/tenMinute" element={<OneVsOneTimer />} />
       </Routes>
     </BrowserRouter>
   </React.Fragment>
