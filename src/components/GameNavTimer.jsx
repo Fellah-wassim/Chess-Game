@@ -15,6 +15,7 @@ function GameNavTimer({
   check,
   game,
   resetTimes,
+  gameOverByTimeout,
 }) {
   const restartClicked = () => {
     resetChessBoard();
@@ -40,8 +41,12 @@ function GameNavTimer({
 
           <h1
             className={`${
-              check ? "bg-darkenRed text-white" : "bg-white text-secondBlack "
-            } flex justify-center items-center gap-2 text-3xl p-2 px-6 rounded-md border-2 border-secondBlack`}
+              gameOverByTimeout
+                ? "bg-darkenRed text-white"
+                : check
+                ? "bg-darkenRed text-white"
+                : "bg-white text-secondBlack "
+            } flex justify-center items-center gap-2 text-3xl p-2 px-6 rounded-md border-2 border-secondBlack `}
           >
             {game.current?.isGameOver() ? (
               game.current.isDraw() ? (
