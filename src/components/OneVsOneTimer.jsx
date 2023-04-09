@@ -36,7 +36,7 @@ const OneVsOneTimer = () => {
     let intervalId;
     if (whiteTimeIsRunning) {
       if (whitePlayerTime === 0) setIsWhiteTimeout(true);
-      if (isWhiteTimeout || game.current.isGameOver()) {
+      if (isWhiteTimeout) {
         setGameOverByTimeout(true);
         setStatus("Black Wins By Timeout");
         setWhiteTimeIsRunning(false);
@@ -49,7 +49,7 @@ const OneVsOneTimer = () => {
     }
     if (blackTimeIsRunning) {
       if (blackPlayerTime === 0) setIsBlackTimeout(true);
-      if (isBlackTimeout || game.current.isGameOver()) {
+      if (isBlackTimeout) {
         setGameOverByTimeout(true);
         setStatus("White Wins By Timeout");
         setWhiteTimeIsRunning(false);
@@ -106,6 +106,8 @@ const OneVsOneTimer = () => {
 
   const changeStatus = function () {
     if (game.current.isGameOver()) {
+      setWhiteTimeIsRunning(false);
+      setBlackTimeIsRunning(false);
       if (game.current.isDraw()) {
         if (game.current.isStalemate()) setStatus("Draw By Stalemate");
         if (game.current.isInsufficientMaterial())
