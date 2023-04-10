@@ -23,7 +23,7 @@ function GameNavTimer({
   };
   return (
     <div className="text-bold text-secondBlack text-xl">
-      <div className="flex flex-col bg-secondWhite text-xl text-white px-4 py-2 sm:px-12 sm:py-6">
+      <div className="flex flex-col bg-secondWhite text-lg sm:text-xl text-white px-2 py-4 sm:px-12 sm:py-6">
         <div className="flex justify-between items-center">
           <Link to="/">
             <button className="nav-btn flex items-center justify-center gap-2 bg-secondBlack p-2 px-4 rounded-md hover:bg-lightenBrown hover:text-secondBlack duration-300 border-2 border-secondBlack">
@@ -46,7 +46,7 @@ function GameNavTimer({
                 : check
                 ? "bg-darkenRed text-white"
                 : "bg-white text-secondBlack "
-            } flex justify-center items-center gap-2 text-3xl p-2 px-6 rounded-md border-2 border-secondBlack `}
+            }  w-[60%] sm:w-[35%] flex justify-center items-center text-center gap-2 text-2xl p-1 px-3  rounded-md border-2 border-secondBlack left-1/2 translate-x-[-50%] absolute bottom-5 sm:static sm:translate-x-0 sm:p-2 sm:px-6`}
           >
             {game.current?.isGameOver() ? (
               game.current.isDraw() ? (
@@ -63,7 +63,7 @@ function GameNavTimer({
             ) : (
               <img src={moveIcon} alt="move icon" className="w-[35px]" />
             )}
-            <p>{status.toUpperCase()}</p>
+            {status.toUpperCase()}
           </h1>
 
           <button

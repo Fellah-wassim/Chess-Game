@@ -11,6 +11,14 @@ code {
   font-family: "Alkatra", cursive;
 }
 
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 input[type="range"] {
   -webkit-appearance: none;
 }
@@ -39,10 +47,6 @@ input[type="range"]:focus {
 
 input[type="range"]:focus::-webkit-slider-runnable-track {
   background: #ccc;
-}
-
-.menu {
-  width: 80%;
 }
 
 .menu li {

@@ -94,7 +94,7 @@ const OneVsOne = () => {
         check={game.current?.isCheck()}
         game={game}
       />
-      <div className="chessboard-container flex items-center justify-center my-0 mx-auto w-fit">
+      <div className="chessboard-container flex items-center justify-center mt-[18px] sm:mt-0 sm:my-0 mx-auto w-fit">
         <Chessboard
           width={screenSize.width <= 580 ? screenSize.width - 20 : 550}
           position={fen}

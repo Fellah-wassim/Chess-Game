@@ -180,12 +180,12 @@ const OneVsOneTimer = () => {
         resetTimes={resetTimes}
         gameOverByTimeout={gameOverByTimeout}
       />
-      <div className=" chessboard-container flex items-center justify-center my-0 mx-auto w-fit">
-        <div className="flex flex-col gap-1 font-bold text-xl">
+      <div className="chessboard-container flex items-center justify-center mt-[18px] sm:mt-0 sm:my-0 mx-auto w-fit">
+        <div className="flex flex-col sm:gap-1 gap-4 font-bold text-xl">
           <div
             className={`${
               Bminutes < 1 ? "bg-darkenRed text-white" : "bg-white"
-            }  p-2 py-1 w-[20%] self-start text-center border-2 rounded-lg`}
+            } w-[40%] sm:w-[20%] p-2 py-1 self-start text-center border-2 rounded-lg`}
           >
             {`${Bminutes.toString().padStart(2, "0")} : 
             ${Bseconds.toString().padStart(2, "0")}`}
@@ -201,7 +201,7 @@ const OneVsOneTimer = () => {
           <div
             className={`${
               Wminutes < 1 ? "bg-darkenRed text-white" : "bg-white"
-            }  p-2 py-1 w-[20%] self-end text-center border-2 rounded-lg`}
+            } w-[40%] sm:w-[20%] p-2 py-1 self-end text-center border-2 rounded-lg`}
           >
             {`${Wminutes.toString().padStart(2, "0")} : 
             ${Wseconds.toString().padStart(2, "0")}`}
