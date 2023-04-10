@@ -38,7 +38,7 @@ const HowToPlay = () => {
 
   return (
     <div className="bg-secondBlack flex justify-center items-center">
-      <div className="w-[95%] bg-lightenBrown px-6 py-4 sm:px-12 sm:w-[70%] lg:w-[50%]">
+      <div className="w-[95%] bg-secondWhite px-6 py-4 sm:px-12 sm:w-[70%] lg:w-[50%]">
         <ul className="documentation-ul flex flex-col gap-12">
           <li>
             <div className="self-start">

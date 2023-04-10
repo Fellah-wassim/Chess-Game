@@ -13,23 +13,7 @@ import strategyPic from "../assets/mainMenu/strategy.png";
 
 const MainMenu = () => {
   const [backgroundMusic] = useState(new Audio(principalMusic));
-
-  const startBackgroundMusic = function () {
-    if (backgroundMusic.paused) backgroundMusic.play();
-  };
-
-  const pauseBackgroundMusic = function () {
-    if (!backgroundMusic.paused) backgroundMusic.pause();
-  };
-
-  const [volume, setVolume] = useState(0);
-
-  const handleVolumeChange = (event) => {
-    const newVolume = parseFloat(event.target.value);
-    setVolume(newVolume);
-    backgroundMusic.volume = newVolume;
-    startBackgroundMusic();
-  };
+  const [backgroundMusicRunning, setBackgroundMusicRunning] = useState(false);
   const backgroundsURL = [
     "https://images.pexels.com/photos/163427/chess-figure-game-play-163427.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "https://images.pexels.com/photos/6114987/pexels-photo-6114987.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -41,10 +25,6 @@ const MainMenu = () => {
     "https://images.pexels.com/photos/6792174/pexels-photo-6792174.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   ];
 
-  const [currentBackgroundURL, setCurrentBackgroundURL] = useState(
-    backgroundsURL[0]
-  );
-
   useEffect(() => {
     const intervalId = setInterval(() => {
       changeBackgroundImage();
@@ -52,12 +32,33 @@ const MainMenu = () => {
     return () => clearInterval(intervalId);
   });
 
+  const [currentBackgroundURL, setCurrentBackgroundURL] = useState(
+    backgroundsURL[0]
+  );
+
   const changeBackgroundImage = () => {
     const currentIndex = backgroundsURL.indexOf(currentBackgroundURL);
     const nextIndex = (currentIndex + 1) % backgroundsURL.length;
     const img = new Image();
     img.setAttribute("src", backgroundsURL[nextIndex]);
     img.onload = () => setCurrentBackgroundURL(backgroundsURL[nextIndex]);
+  };
+
+  // const handleVolumeChange = (event) => {
+  //   const newVolume = parseFloat(event.target.value);
+  //   setVolume(newVolume);
+  //   backgroundMusic.volume = newVolume;
+  //   startBackgroundMusic();
+  // };
+
+  const startBackgroundMusic = function () {
+    backgroundMusic.play();
+    setBackgroundMusicRunning(true);
+  };
+
+  const pauseBackgroundMusic = function () {
+    backgroundMusic.pause();
+    setBackgroundMusicRunning(false);
   };
 
   return (
@@ -71,7 +72,18 @@ const MainMenu = () => {
       }}
       className="main-menu-container h-[100vh] flex justify-center items-center text-bold bg-secondBlack text-white  text-xl"
     >
-      <div className="relative flex flex-col gap-6 items-center overflow-hidden w-[90%] md:w-[50%] min-h-[80%] bg-secondWhite border-2 border-black rounded-md p-6">
+      <div className="relative flex flex-col gap-6 justify-center items-center overflow-hidden w-[90%] md:w-[50%] min-h-[80%] bg-secondWhite border-2 border-black rounded-md p-6">
+        <div className="absolute top-8 right-8">
+          {backgroundMusicRunning ? (
+            <button onClick={pauseBackgroundMusic}>
+              <img src={volumeOn} alt="volume on icon" className="w-[30px]" />
+            </button>
+          ) : (
+            <button onClick={startBackgroundMusic}>
+              <img src={volumeOff} alt="volume off icon" className="w-[30px]" />
+            </button>
+          )}
+        </div>
         <div className="w-[100px] min-h-[100px] rounded-[50%] overflow-hidden border-2 border-secondBlack">
           <img src={logo} alt="logo" />
         </div>
@@ -102,21 +114,7 @@ const MainMenu = () => {
             </li>
           </Link>
         </ul>
-        <div className="flex gap-2">
-          <img
-            src={volume ? volumeOn : volumeOff}
-            alt="volume icon"
-            className="w-[30px]"
-          />
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.1"
-            value={volume}
-            onChange={handleVolumeChange}
-          />
-        </div>
+
         <div className="flex gap-2">
           <a href="https://github.com/Fellah-wassim" target="blank">
             <img
