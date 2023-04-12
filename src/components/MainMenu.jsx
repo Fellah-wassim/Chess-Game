@@ -44,13 +44,6 @@ const MainMenu = () => {
     img.onload = () => setCurrentBackgroundURL(backgroundsURL[nextIndex]);
   };
 
-  // const handleVolumeChange = (event) => {
-  //   const newVolume = parseFloat(event.target.value);
-  //   setVolume(newVolume);
-  //   backgroundMusic.volume = newVolume;
-  //   startBackgroundMusic();
-  // };
-
   const startBackgroundMusic = function () {
     backgroundMusic.play();
     setBackgroundMusicRunning(true);
@@ -90,14 +83,14 @@ const MainMenu = () => {
         <h1 className="text-4xl font-serif text-black text-bold">WELCOME</h1>
         <ul className="menu menu w-[100%] sm:w-[80%] list-none text-2xl">
           <Link to="/play">
-            <li>
+            <li onClick={pauseBackgroundMusic}>
               <button className="">
                 <p>Play Chess</p>
               </button>
             </li>
           </Link>
           <Link to="/how-to-play">
-            <li>
+            <li onClick={pauseBackgroundMusic}>
               <button>
                 <p>How To Play</p>
               </button>
@@ -108,7 +101,7 @@ const MainMenu = () => {
               <p>More Games</p>
             </li>
           </Link>
-          <Link to="/">
+          <Link to="/" onClick={pauseBackgroundMusic}>
             <li>
               <p>Contact Me</p>
             </li>
