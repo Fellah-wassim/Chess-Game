@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import OneVsOne from "./components/OneVsOne";
 import "./index.css";
-import MainMenu from "./components/MainMenu";
+import MainMenu from "./components/Menu/MainMenu";
 import HowToPlay from "./components/HowToPlay";
 import OneVsOneTimer from "./components/OneVsOneTimer";
 

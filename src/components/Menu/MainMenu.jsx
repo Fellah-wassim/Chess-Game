@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import "../index.css";
-import logo from "../assets/mainMenu/logo.jpg";
-import instagramIcon from "../assets/mainMenu/ig.svg";
-import fbIcon from "../assets/mainMenu/fb.svg";
-import linkedinIcon from "../assets/mainMenu/li.svg";
-import githubIcon from "../assets/mainMenu/gh.svg";
-import principalMusic from "../assets/mainMenu/principalSound.wav";
-import volumeOff from "../assets/mainMenu/volume-off.svg";
-import volumeOn from "../assets/mainMenu/volume-on.svg";
-import strategyPic from "../assets/mainMenu/strategy.png";
+import "../../index.css";
+import logo from "../../assets/mainMenu/logo.jpg";
+import instagramIcon from "../../assets/mainMenu/ig.svg";
+import fbIcon from "../../assets/mainMenu/fb.svg";
+import linkedinIcon from "../../assets/mainMenu/li.svg";
+import githubIcon from "../../assets/mainMenu/gh.svg";
+import principalMusic from "../../assets/mainMenu/principalSound.wav";
+import volumeOff from "../../assets/mainMenu/volume-off.svg";
+import volumeOn from "../../assets/mainMenu/volume-on.svg";
+import strategyPic from "../../assets/mainMenu/strategy.png";
 import Menu from "./Menu.jsx";
 import Play from "./Play.jsx";
 
