@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import "../index.css";
 import logo from "../assets/mainMenu/logo.jpg";
 import instagramIcon from "../assets/mainMenu/ig.svg";
@@ -10,8 +9,11 @@ import principalMusic from "../assets/mainMenu/principalSound.wav";
 import volumeOff from "../assets/mainMenu/volume-off.svg";
 import volumeOn from "../assets/mainMenu/volume-on.svg";
 import strategyPic from "../assets/mainMenu/strategy.png";
+import Menu from "./Menu.jsx";
+import Play from "./Play.jsx";
 
 const MainMenu = () => {
+  const [currentPage, setCurrentPage] = useState(0);
   const [backgroundMusic] = useState(new Audio(principalMusic));
   const [backgroundMusicRunning, setBackgroundMusicRunning] = useState(false);
   const backgroundsURL = [
@@ -31,6 +33,10 @@ const MainMenu = () => {
     }, 5000);
     return () => clearInterval(intervalId);
   });
+
+  const handleSetCurrentPage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   const [currentBackgroundURL, setCurrentBackgroundURL] = useState(
     backgroundsURL[0]
@@ -66,6 +72,28 @@ const MainMenu = () => {
       className="main-menu-container h-[100vh] flex justify-center items-center text-bold bg-secondBlack text-white  text-xl"
     >
       <div className="relative flex flex-col gap-6 justify-center items-center overflow-hidden w-[90%] md:w-[50%] min-h-[80%] bg-secondWhite border-2 border-black rounded-md p-6">
+        {currentPage ? (
+          <div
+            className="self-start"
+            onClick={() => {
+              handleSetCurrentPage(0);
+            }}
+          >
+            <button className="nav-btn flex items-center justify-center gap-2 bg-secondBlack p-2 px-4 rounded-md hover:bg-lightenBrown hover:text-secondBlack duration-300 border-2 border-secondBlack">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                id="back"
+                className="w-[25px]"
+              >
+                <path d="M19,5H9.83a3,3,0,0,0-2.12.88L2.29,11.29a1,1,0,0,0,0,1.42l5.42,5.41A3,3,0,0,0,9.83,19H19a3,3,0,0,0,3-3V8A3,3,0,0,0,19,5Zm1,11a1,1,0,0,1-1,1H9.83a1.05,1.05,0,0,1-.71-.29L4.41,12,9.12,7.29A1.05,1.05,0,0,1,9.83,7H19a1,1,0,0,1,1,1ZM16.71,9.29a1,1,0,0,0-1.42,0L14,10.59l-1.29-1.3a1,1,0,0,0-1.42,1.42L12.59,12l-1.3,1.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L14,13.41l1.29,1.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L15.41,12l1.3-1.29A1,1,0,0,0,16.71,9.29Z"></path>
+              </svg>
+              <p>Back</p>
+            </button>
+          </div>
+        ) : (
+          ""
+        )}
         <div className="absolute top-8 right-8">
           {backgroundMusicRunning ? (
             <button onClick={pauseBackgroundMusic}>
@@ -81,32 +109,18 @@ const MainMenu = () => {
           <img src={logo} alt="logo" />
         </div>
         <h1 className="text-4xl font-serif text-black text-bold">WELCOME</h1>
-        <ul className="menu menu w-[100%] sm:w-[80%] list-none text-2xl">
-          <Link to="/play">
-            <li onClick={pauseBackgroundMusic}>
-              <button className="">
-                <p>Play Chess</p>
-              </button>
-            </li>
-          </Link>
-          <Link to="/how-to-play">
-            <li onClick={pauseBackgroundMusic}>
-              <button>
-                <p>How To Play</p>
-              </button>
-            </li>
-          </Link>
-          <Link to="/">
-            <li onClick={pauseBackgroundMusic}>
-              <p>More Games</p>
-            </li>
-          </Link>
-          <Link to="/" onClick={pauseBackgroundMusic}>
-            <li>
-              <p>Contact Me</p>
-            </li>
-          </Link>
-        </ul>
+        {currentPage ? (
+          <Play />
+        ) : (
+          <Menu
+            handleSetCurrentPage={() => {
+              handleSetCurrentPage(1);
+            }}
+            pauseBackgroundMusic={() => {
+              pauseBackgroundMusic();
+            }}
+          />
+        )}
 
         <div className="flex gap-2">
           <a href="https://github.com/Fellah-wassim" target="blank">
