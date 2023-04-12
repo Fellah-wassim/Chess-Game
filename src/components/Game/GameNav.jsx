@@ -22,6 +22,16 @@ function GameNav(props) {
     return "bg-white text-secondBlack";
   };
 
+  const StatusIcon = () => {
+    if (props.game.current?.isGameOver()) {
+      if (props.game.current?.isDraw()) return drawIcon;
+      return checkmateIcon;
+    }
+    if (props.check) return checkIcon;
+    if (props.gameOverByTimeout) return checkmateIcon;
+    return moveIcon;
+  };
+
   return (
     <div className="text-bold text-secondBlack text-xl">
       <div className="flex flex-col bg-secondWhite text-lg sm:text-xl text-white px-2 py-4 sm:px-12 sm:py-6">
@@ -43,21 +53,7 @@ function GameNav(props) {
           <h1
             className={`${StatusStyle()} w-[60%] sm:w-[35%] flex justify-center items-center text-center gap-2 text-2xl p-1 px-3  rounded-md border-2 border-secondBlack left-1/2 translate-x-[-50%] absolute bottom-5 sm:static sm:translate-x-0 sm:p-2 sm:px-6`}
           >
-            {props.game.current?.isGameOver() ? (
-              props.game.current.isDraw() ? (
-                <img src={drawIcon} alt="draw icon" className="w-[35px]" />
-              ) : (
-                <img
-                  src={checkmateIcon}
-                  alt="checkmate icon"
-                  className="w-[35px]"
-                />
-              )
-            ) : props.check ? (
-              <img src={checkIcon} alt="check icon" className="w-[35px]" />
-            ) : (
-              <img src={moveIcon} alt="move icon" className="w-[35px]" />
-            )}
+            <img src={StatusIcon()} alt="checkmate icon" className="w-[35px]" />
             <p>{props.status.toUpperCase()}</p>
           </h1>
 
