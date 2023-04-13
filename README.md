@@ -44,7 +44,7 @@ Contributions are always welcome! If you find a bug or have a feature request, p
 
 ## Credits
 
-This project was created by Fellah Wassim(https://github.com/fellah-wassim).
+This project was created by [Fellah Wassim](https://github.com/fellah-wassim).
 
 ## License
 
