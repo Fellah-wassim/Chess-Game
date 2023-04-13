@@ -108,7 +108,9 @@ const MainMenu = () => {
         <div className="w-[100px] min-h-[100px] rounded-[50%] overflow-hidden border-2 border-secondBlack">
           <img src={logo} alt="logo" />
         </div>
-        <h1 className="text-4xl font-serif text-black text-bold">WELCOME</h1>
+        <h1 className="text-4xl font-serif text-black text-bold">
+          {currentPage ? "PLAY" : "WELCOME"}
+        </h1>
         {currentPage ? (
           <Play />
         ) : (
