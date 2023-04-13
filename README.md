@@ -59,6 +59,8 @@ This project was created using the following tools:
 - <img src="https://img.shields.io/badge/code-JavaScript-blue?style=flat-square&logo=javascript" alt="JavaScript" /> JavaScript
 - <img src="https://img.shields.io/badge/framework-Tailwind_CSS-blue?style=flat-square&logo=tailwind-css" alt="Tailwind CSS" /> Tailwind CSS
 - <img src="https://img.shields.io/badge/package-npm-blue?style=flat-square&logo=npm" alt="npm" /> npm
+- <img src="https://img.shields.io/badge/library-chessboard.js-blue?style=flat-square&logo=javascript" alt="Chessboard.js" /> Chessboard.js
+- <img src="https://img.shields.io/badge/library-chess.js-blue?style=flat-square&logo=javascript" alt="Chess.js" /> Chess.js
 - <img src="https://img.shields.io/badge/linter-ESLint-blue?style=flat-square&logo=eslint" alt="ESLint" /> ESLint
 - <img src="https://img.shields.io/badge/git-Git-blue?style=flat-square&logo=git" alt="Git" /> Git
 - <img src="https://img.shields.io/badge/code%20formatter-Prettier-blue?style=flat-square&logo=prettier" alt="Prettier" /> Prettier
