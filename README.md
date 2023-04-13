@@ -57,11 +57,13 @@ This project was created using the following tools:
 
 ## Tools
 
-- <img src="https://img.shields.io/badge/code-VSCode-blue?style=flat-square&logo=visual-studio-code" alt="VS Code" /> Visual Studio Code
-- <img src="https://img.shields.io/badge/git-Git-blue?style=flat-square&logo=git" alt="Git" /> Git
+- <img src="https://img.shields.io/badge/library-React-blue?style=flat-square&logo=react" alt="React" /> React
+- <img src="https://img.shields.io/badge/framework-Tailwind_CSS-blue?style=flat-square&logo=tailwind-css" alt="Tailwind CSS" /> Tailwind CSS
 - <img src="https://img.shields.io/badge/package-npm-blue?style=flat-square&logo=npm" alt="npm" /> npm
 - <img src="https://img.shields.io/badge/linter-ESLint-blue?style=flat-square&logo=eslint" alt="ESLint" /> ESLint
+- <img src="https://img.shields.io/badge/git-Git-blue?style=flat-square&logo=git" alt="Git" /> Git
 - <img src="https://img.shields.io/badge/code%20formatter-Prettier-blue?style=flat-square&logo=prettier" alt="Prettier" /> Prettier
+- <img src="https://img.shields.io/badge/code-VSCode-blue?style=flat-square&logo=visual-studio-code" alt="VS Code" /> Visual Studio Code
 
 ---
 
