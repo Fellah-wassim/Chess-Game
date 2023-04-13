@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import OneVsOne from "./components/OneVsOne";
+import OneVsOne from "./components/Game/OneVsOne";
 import "./index.css";
 import MainMenu from "./components/Menu/MainMenu";
 import HowToPlay from "./components/HowToPlay";
-import OneVsOneTimer from "./components/OneVsOneTimer";
+import OneVsOneTimer from "./components/Game/OneVsOneTimer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
