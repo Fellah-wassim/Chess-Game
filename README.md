@@ -55,9 +55,8 @@ This project is licensed under the MIT License - see the [![License: MIT](https:
 
 This project was created using the following tools:
 
-## Tools
-
 - <img src="https://img.shields.io/badge/library-React-blue?style=flat-square&logo=react" alt="React" /> React
+- <img src="https://img.shields.io/badge/code-JavaScript-blue?style=flat-square&logo=javascript" alt="JavaScript" /> JavaScript
 - <img src="https://img.shields.io/badge/framework-Tailwind_CSS-blue?style=flat-square&logo=tailwind-css" alt="Tailwind CSS" /> Tailwind CSS
 - <img src="https://img.shields.io/badge/package-npm-blue?style=flat-square&logo=npm" alt="npm" /> npm
 - <img src="https://img.shields.io/badge/linter-ESLint-blue?style=flat-square&logo=eslint" alt="ESLint" /> ESLint
