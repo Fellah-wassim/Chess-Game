@@ -15,7 +15,7 @@
   <a href="#usage">Usage</a> •
   <a href="#contributing">Contributing</a> •
   <a href="#credits">Credits</a> •
-  <a href="#license">License</a>
+  <a href="#license">License</a> •
   <a href="#tools-used">Tools Used</a>
 </p>
 
