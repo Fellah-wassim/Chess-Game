@@ -48,7 +48,7 @@ This project was created by Fellah Wassim(https://github.com/fellah-wassim).
 
 ## License
 
-This project is licensed under the MIT License - see the [![License: MIT](https://img.shields.io/npm/l/chess?color=%23b58863&label=Licence)](https://opensource.org/licenses/MIT) file for details.
+This project is licensed under the MIT License - see the [![License: MIT](https://img.shields.io/npm/l/chess?color=%23b58863&label=Licence)](https://github.com/Fellah-wassim/Chess-Game/blob/master/LICENCE) file for details.
 
 ---
 
