@@ -16,6 +16,7 @@
   <a href="#contributing">Contributing</a> •
   <a href="#credits">Credits</a> •
   <a href="#license">License</a>
+  <a href="#tools-used">Tools Used</a>
 </p>
 
 <hr>
@@ -49,6 +50,18 @@ This project was created by [Fellah Wassim](https://github.com/fellah-wassim).
 ## License
 
 This project is licensed under the MIT License - see the [![License: MIT](https://img.shields.io/npm/l/chess?color=%23b58863&label=Licence)](https://github.com/Fellah-wassim/Chess-Game/blob/master/LICENCE) file for details.
+
+## Tools Used
+
+This project was created using the following tools:
+
+## Tools
+
+- <img src="https://img.shields.io/badge/code-VSCode-blue?style=flat-square&logo=visual-studio-code" alt="VS Code" /> Visual Studio Code
+- <img src="https://img.shields.io/badge/git-Git-blue?style=flat-square&logo=git" alt="Git" /> Git
+- <img src="https://img.shields.io/badge/package-npm-blue?style=flat-square&logo=npm" alt="npm" /> npm
+- <img src="https://img.shields.io/badge/linter-ESLint-blue?style=flat-square&logo=eslint" alt="ESLint" /> ESLint
+- <img src="https://img.shields.io/badge/code%20formatter-Prettier-blue?style=flat-square&logo=prettier" alt="Prettier" /> Prettier
 
 ---
 
