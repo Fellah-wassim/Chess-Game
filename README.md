@@ -12,7 +12,6 @@
 
 <p align="center">
   <a href="#features">Features</a> •
-  <a href="#installation">Installation</a> •
   <a href="#usage">Usage</a> •
   <a href="#contributing">Contributing</a> •
   <a href="#credits">Credits</a> •
@@ -54,5 +53,5 @@ This project is licensed under the MIT License - see the [![License: MIT](https:
 ---
 
 <p align="center">
-  Made with ❤️ by Your Name
+  Made with ❤️ by Fellah Wassim
 </p>
