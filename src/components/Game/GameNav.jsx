@@ -11,7 +11,6 @@ import drawIcon from "../../assets/nav/draw.svg";
 function GameNav(props) {
   const restartClicked = () => {
     props.resetChessBoard();
-    console.log("props.withTimer", props.withTimer);
     if (props.withTimer) props.resetTimes();
   };
 
