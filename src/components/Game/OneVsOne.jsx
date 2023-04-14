@@ -64,7 +64,6 @@ const OneVsOne = () => {
         promotion: "q",
       });
       if (move === null) return;
-      console.log(game);
       setFen(game.current.fen());
       setSquareStyle({
         [move.from]: { backgroundColor: "#FFFF8A" },
