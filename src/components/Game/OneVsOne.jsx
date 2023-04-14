@@ -3,6 +3,11 @@ import "../../index.css";
 import Chessboard from "chessboardjsx";
 import { Chess } from "chess.js";
 import GameNav from "./GameNav";
+import moveAudio from "../../assets/audio/move.mp3";
+import checkAudio from "../../assets/audio/check.mp3";
+import checkmateAudio from "../../assets/audio/checkmate.mp3";
+import stalemateAudio from "../../assets/audio/stalemate.mp3";
+import captureAudio from "../../assets/audio/capture.mp3";
 
 const OneVsOne = () => {
   const [fen, setFen] = useState("start");
@@ -43,6 +48,7 @@ const OneVsOne = () => {
         : setStatus(game.current.turn() === "b" ? "Black Move" : "White Move");
     }
   };
+
   let game = useRef(null);
 
   useEffect(() => {
@@ -70,6 +76,7 @@ const OneVsOne = () => {
         [move.to]: { backgroundColor: "#FFFF5C" },
       });
       changeStatus();
+      playMoveAudio(move);
     } catch (e) {}
   };
 
@@ -82,6 +89,17 @@ const OneVsOne = () => {
 
   const onSquareRightClick = (square) => {
     setSquareStyle({ [square]: { backgroundColor: "red" } });
+  };
+
+  const playMoveAudio = (move) => {
+    let audio = new Audio(moveAudio);
+    if (game.current?.isGameOver()) {
+      if (game.current?.isDraw()) audio = new Audio(stalemateAudio);
+      audio = new Audio(checkmateAudio);
+    }
+    if (game.current.isCheck()) audio = new Audio(checkAudio);
+    if (move.san.includes("x")) audio = new Audio(captureAudio);
+    audio.play();
   };
 
   return (

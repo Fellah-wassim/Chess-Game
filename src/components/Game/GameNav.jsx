@@ -7,15 +7,12 @@ import checkIcon from "../../assets/nav/check.svg";
 import moveIcon from "../../assets/nav/move.svg";
 import checkmateIcon from "../../assets/nav/checkmate.svg";
 import drawIcon from "../../assets/nav/draw.svg";
-import moveAudio from "../../assets/audio/move.mp3";
 import gameStartAudio from "../../assets/audio/game-start.mp3";
-import checkAudio from "../../assets/audio/check.mp3";
-import checkmateAudio from "../../assets/audio/checkmate.mp3";
-import stalemateAudio from "../../assets/audio/stalemate.mp3";
 
 function GameNav(props) {
   const restartClicked = () => {
     props.resetChessBoard();
+    playStartGameAudio();
     if (props.withTimer) props.resetTimes();
   };
 
@@ -36,15 +33,8 @@ function GameNav(props) {
     return moveIcon;
   };
 
-  const playMoveAudio = () => {
-    let audio = new Audio(gameStartAudio);
-    if (props.game.current?._history?.length > 0) audio = new Audio(moveAudio);
-    if (props.game.current?.isGameOver()) {
-      if (props.game.current?.isDraw()) audio = new Audio(stalemateAudio);
-      audio = new Audio(checkmateAudio);
-    }
-    if (props.check) audio = new Audio(checkAudio);
-    if (props.gameOverByTimeout) audio = new Audio(checkmateAudio);
+  const playStartGameAudio = function () {
+    const audio = new Audio(gameStartAudio);
     audio.play();
   };
 
@@ -70,10 +60,7 @@ function GameNav(props) {
             className={`${StatusStyle()} w-[60%] sm:w-[35%] flex justify-center items-center text-center gap-2 text-2xl p-1 px-3  rounded-md border-2 border-secondBlack left-1/2 translate-x-[-50%] absolute bottom-5 sm:static sm:translate-x-0 sm:p-2 sm:px-6`}
           >
             <img src={StatusIcon()} alt="checkmate icon" className="w-[35px]" />
-            <p>
-              {props.status.toUpperCase()}
-              {playMoveAudio()}
-            </p>
+            <p>{props.status.toUpperCase()}</p>
           </h1>
 
           <button
