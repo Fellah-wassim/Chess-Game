@@ -8,6 +8,7 @@ import checkAudio from "../../assets/audio/check.mp3";
 import checkmateAudio from "../../assets/audio/checkmate.mp3";
 import stalemateAudio from "../../assets/audio/stalemate.mp3";
 import captureAudio from "../../assets/audio/capture.mp3";
+import castlingAudio from "../../assets/audio/castling.mp3";
 
 const OneVsOneTimer = () => {
   const [fen, setFen] = useState("start");
@@ -183,6 +184,7 @@ const OneVsOneTimer = () => {
     }
     if (game.current.isCheck()) audio = new Audio(checkAudio);
     if (move.san.includes("x")) audio = new Audio(captureAudio);
+    if (move.san.includes("O-O")) audio = new Audio(castlingAudio);
     audio.play();
   };
 
