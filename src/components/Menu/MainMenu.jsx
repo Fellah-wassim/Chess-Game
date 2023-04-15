@@ -5,7 +5,7 @@ import instagramIcon from "../../assets/mainMenu/ig.svg";
 import fbIcon from "../../assets/mainMenu/fb.svg";
 import linkedinIcon from "../../assets/mainMenu/li.svg";
 import githubIcon from "../../assets/mainMenu/gh.svg";
-import principalMusic from "../../assets/mainMenu/principalSound.wav";
+import principalMusic from "../../assets/mainMenu/principalSound.mp3";
 import volumeOff from "../../assets/mainMenu/volume-off.svg";
 import volumeOn from "../../assets/mainMenu/volume-on.svg";
 import strategyPic from "../../assets/mainMenu/strategy.png";
