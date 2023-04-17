@@ -4,6 +4,9 @@ import { Link as LinkRouter } from "react-router-dom";
 import setupChessboardImg from "../assets/howToPlay/setupChessboard.gif";
 
 const HowToPlay = () => {
+  useEffect(() => {
+    document.title = "How To Play | Online Chess with React";
+  }, []);
   const [isIntersecting, setIsIntersecting] = useState([]);
   const elementRefs = useRef([]);
   const [loading, setLoading] = useState(true);

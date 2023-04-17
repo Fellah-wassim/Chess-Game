@@ -11,6 +11,10 @@ import captureAudio from "../../assets/audio/capture.mp3";
 import castlingAudio from "../../assets/audio/castling.mp3";
 
 const OneVsOneTimer = () => {
+  useEffect(() => {
+    document.title = "One Vs One 10 Minutes | Online Chess with React";
+  }, []);
+
   const [fen, setFen] = useState("start");
   const [squareStyle, setSquareStyle] = useState({});
   const [status, setStatus] = React.useState("White Move");

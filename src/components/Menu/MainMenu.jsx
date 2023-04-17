@@ -28,6 +28,13 @@ const MainMenu = () => {
   ];
 
   useEffect(() => {
+    const title = currentPage
+      ? "Play Chess | Choose a Game Mode"
+      : "Welcome | Online Chess with React";
+    document.title = title;
+  }, [currentPage]);
+
+  useEffect(() => {
     const intervalId = setInterval(() => {
       changeBackgroundImage();
     }, 5000);

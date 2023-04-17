@@ -11,6 +11,9 @@ import captureAudio from "../../assets/audio/capture.mp3";
 import castlingAudio from "../../assets/audio/castling.mp3";
 
 const OneVsOne = () => {
+  useEffect(() => {
+    document.title = "One Vs One | Online Chess with React";
+  }, []);
   const [fen, setFen] = useState("start");
   const [squareStyle, setSquareStyle] = useState({});
   const [status, setStatus] = React.useState("White Move");
