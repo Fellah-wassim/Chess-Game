@@ -74,7 +74,7 @@ const MainMenu = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        transition: "background 2s",
+        transition: "background 3s",
       }}
       className="main-menu-container h-[100vh] flex justify-center items-center text-bold bg-secondBlack text-white  text-xl"
     >
