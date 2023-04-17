@@ -37,7 +37,7 @@ const MainMenu = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       changeBackgroundImage();
-    }, 5000);
+    }, 8000);
     return () => clearInterval(intervalId);
   });
 
