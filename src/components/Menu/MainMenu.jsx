@@ -119,7 +119,11 @@ const MainMenu = () => {
           {currentPage ? "PLAY" : "WELCOME"}
         </h1>
         {currentPage ? (
-          <Play />
+          <Play
+            pauseBackgroundMusic={() => {
+              pauseBackgroundMusic();
+            }}
+          />
         ) : (
           <Menu
             handleSetCurrentPage={() => {

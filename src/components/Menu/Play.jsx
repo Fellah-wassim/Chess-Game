@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import gameStartAudio from "../../assets/audio/game-start.mp3";
 
-function Play() {
+function Play(props) {
   const playStartGameAudio = function () {
     const audio = new Audio(gameStartAudio);
     audio.play();
@@ -12,14 +12,24 @@ function Play() {
     <ul className="menu w-[100%] sm:w-[80%] list-none text-2xl">
       <Link to="/2player/withoutTime">
         <li>
-          <button onClick={playStartGameAudio}>
+          <button
+            onClick={() => {
+              playStartGameAudio();
+              props.pauseBackgroundMusic();
+            }}
+          >
             <p>2 Player No Time</p>
           </button>
         </li>
       </Link>
       <Link to="/2player/tenMinute">
         <li>
-          <button onClick={playStartGameAudio}>
+          <button
+            onClick={() => {
+              playStartGameAudio();
+              props.pauseBackgroundMusic();
+            }}
+          >
             <p>2 Player 10 min</p>
           </button>
         </li>
