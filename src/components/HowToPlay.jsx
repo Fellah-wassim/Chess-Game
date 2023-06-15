@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { Link as LinkRouter } from "react-router-dom";
 import setupChessboardImg from "../assets/howToPlay/setupChessboard.gif";
@@ -7,37 +7,8 @@ const HowToPlay = () => {
   useEffect(() => {
     document.title = "How To Play | Online Chess with React";
   }, []);
-  const [isIntersecting, setIsIntersecting] = useState([]);
-  const elementRefs = useRef([]);
+
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    let elementRefsCurrent = elementRefs.current;
-    const observer = new IntersectionObserver((entries) => {
-      const newIsIntersecting = entries.reduce(
-        (acc, entry, index) => {
-          acc[index] = entry.isIntersecting;
-          return acc;
-        },
-        [...isIntersecting]
-      );
-      setIsIntersecting(newIsIntersecting);
-    });
-
-    elementRefs.current.forEach((element) => {
-      if (element) {
-        observer.observe(element);
-      }
-    });
-
-    return () => {
-      elementRefsCurrent.forEach((element) => {
-        if (element) {
-          observer.unobserve(element);
-        }
-      });
-    };
-  }, [elementRefs, isIntersecting]);
 
   return (
     <div className="bg-secondBlack flex justify-center items-center">
@@ -116,138 +87,130 @@ const HowToPlay = () => {
               pieces in case of capture, or control important squares in the
               game.
             </p>
-            <div ref={(element) => (elementRefs.current[0] = element)}>
+            <div>
               <p className="text-2xl">How to Move the King in Chess</p>
               <p>
                 The king is the most important piece, but is one of the weakest.
                 The king can only move one square in any direction - up, down,
                 to the sides, and diagonally.
               </p>
-              {isIntersecting[0] && (
-                <>
-                  <iframe
-                    display={loading ? "none" : "block"}
-                    id="1"
-                    src="https://www.youtube.com/embed/ZWjDKiHBvZo?origin=www.youtube.com"
-                    title="How to Move the Chess Pieces: The King and the Goal"
-                    onLoad={() => setLoading(false)}
-                    allow="accelerometer;  autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
-                </>
-              )}
+
+              <iframe
+                display={loading ? "none" : "block"}
+                id="1"
+                src="https://www.youtube.com/embed/ZWjDKiHBvZo?origin=www.youtube.com"
+                title="How to Move the Chess Pieces: The King and the Goal"
+                onLoad={() => setLoading(false)}
+                allow="accelerometer;  autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
               <p>
                 The king may never move himself into check (where he could be
                 captured). When the king is attacked by another piece this is
                 called "check".
               </p>
             </div>
-            <div ref={(element) => (elementRefs.current[1] = element)}>
+            <div>
               <p className="text-2xl">How to Move the Queen in Chess</p>
-              <p ref={(element) => (elementRefs.current[1] = element)}>
+              <p>
                 The queen is the most powerful piece. She can move in any one
                 straight direction - forward, backward, sideways, or diagonally
                 - as far as possible as long as she does not move through any of
                 her own pieces.
               </p>
-              {isIntersecting[1] && (
-                <iframe
-                  id="2"
-                  src="https://www.youtube.com/embed/vwgwI0wnULU?origin=www.youtube.com"
-                  title="The Queen | How to Move the Chess Pieces"
-                  allow="accelerometer;  autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              )}
+
+              <iframe
+                id="2"
+                src="https://www.youtube.com/embed/vwgwI0wnULU?origin=www.youtube.com"
+                title="The Queen | How to Move the Chess Pieces"
+                allow="accelerometer;  autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+
               <p>
                 And, like with all pieces, if the queen captures an opponent's
                 piece her move is over. Notice how the white queen captures the
                 black queen and then the black king is forced to move.
               </p>
             </div>
-            <div ref={(element) => (elementRefs.current[2] = element)}>
+            <div>
               <p className="text-2xl">How To Move The Rook In Chess</p>
-              <p ref={(element) => (elementRefs.current[2] = element)}>
+              <p>
                 The rook may move as far as it wants, but only forward,
                 backward, and to the sides.
               </p>
-              {isIntersecting[2] && (
-                <iframe
-                  ref={(element) => (elementRefs.current[2] = element)}
-                  id="3"
-                  src="https://www.youtube.com/embed/PlgnoYqsK-8?origin=www.youtube.com"
-                  title="The Rook | How to Move the Chess Pieces #shorts"
-                  allow="accelerometer;  autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              )}
+              <iframe
+                id="3"
+                src="https://www.youtube.com/embed/PlgnoYqsK-8?origin=www.youtube.com"
+                title="The Rook | How to Move the Chess Pieces #shorts"
+                allow="accelerometer;  autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+
               <p>
                 The rooks are particularly powerful pieces when they are
                 protecting each other and working together!
               </p>
             </div>
-            <div ref={(element) => (elementRefs.current[3] = element)}>
+            <div>
               <p className="text-2xl">How To Move The Bishop In Chess</p>
-              <p ref={(element) => (elementRefs.current[3] = element)}>
+              <p>
                 The bishop may move as far as it wants, but only diagonally.
                 Each bishop starts on one color (light or dark) and must always
                 stay on that color.
               </p>
-              {isIntersecting[3] && (
-                <iframe
-                  ref={(element) => (elementRefs.current[3] = element)}
-                  id="4"
-                  src="https://www.youtube.com/embed/_y3eA21rD1w?origin=www.youtube.com"
-                  title="The Bishop | How to Move the Chess Pieces"
-                  allow="accelerometer;  autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              )}
+
+              <iframe
+                id="4"
+                src="https://www.youtube.com/embed/_y3eA21rD1w?origin=www.youtube.com"
+                title="The Bishop | How to Move the Chess Pieces"
+                allow="accelerometer;  autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+
               <p>
                 Bishops work well together because they cover up each other's
                 weaknesses.
               </p>
             </div>
-            <div ref={(element) => (elementRefs.current[4] = element)}>
+            <div>
               <p className="text-2xl">How To Move The Knight In Chess</p>
-              <p ref={(element) => (elementRefs.current[4] = element)}>
+              <p>
                 Knights move in a very different way from the other pieces –
                 going two squares in one direction, and then one more move at a
                 90-degree angle, just like the shape of an “L”.
               </p>
-              {isIntersecting[4] && (
-                <iframe
-                  ref={(element) => (elementRefs.current[4] = element)}
-                  id="5"
-                  src="https://www.youtube.com/embed/VGoT8FR0O_8?origin=www.youtube.com"
-                  title="The Knight | How to Move the Chess Pieces"
-                  allow="accelerometer;  autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              )}
+
+              <iframe
+                id="5"
+                src="https://www.youtube.com/embed/VGoT8FR0O_8?origin=www.youtube.com"
+                title="The Knight | How to Move the Chess Pieces"
+                allow="accelerometer;  autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+
               <p>
                 Knights are also the only pieces that can move over other
                 pieces.
               </p>
             </div>
-            <div ref={(element) => (elementRefs.current[5] = element)}>
+            <div>
               <p className="text-2xl">How To Move The Pawn In Chess</p>
-              <p ref={(element) => (elementRefs.current[5] = element)}>
+              <p>
                 Pawns are unusual because they move and capture in different
                 ways: they move forward but capture diagonally. Pawns can only
                 move forward one square at a time, except for their very first
                 move where they can move forward two squares.
               </p>
-              {isIntersecting[5] && (
-                <iframe
-                  ref={(element) => (elementRefs.current[5] = element)}
-                  id="6"
-                  src="https://www.youtube.com/embed/00uUlbcPz5E?origin=www.youtube.com"
-                  title="The Pawn | How to Move the Chess Pieces"
-                  allow="accelerometer;  autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              )}
+
+              <iframe
+                id="6"
+                src="https://www.youtube.com/embed/00uUlbcPz5E?origin=www.youtube.com"
+                title="The Pawn | How to Move the Chess Pieces"
+                allow="accelerometer;  autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+
               <p>
                 Pawns can only capture one square diagonally in front of them.
                 They can never move or capture backward. If there is another
@@ -257,9 +220,9 @@ const HowToPlay = () => {
             </div>
           </li>
           <li id="step3">
-            <div ref={(element) => (elementRefs.current[6] = element)}>
+            <div>
               <p className="text-4xl">3. How To Do "En Passant" In Chess</p>
-              <p ref={(element) => (elementRefs.current[6] = element)}>
+              <p>
                 The last rule about pawns is called “en passant,” which is
                 French for “in passing”. If a pawn moves out two squares on its
                 first move, and by doing so lands to the side of an opponent's
@@ -267,16 +230,15 @@ const HowToPlay = () => {
                 capture it), that other pawn has the option of capturing the
                 first pawn as it passes by.
               </p>
-              {isIntersecting[6] && (
-                <iframe
-                  ref={(element) => (elementRefs.current[6] = element)}
-                  id="7"
-                  src="https://www.youtube.com/embed/c_KRIH0wnhE?origin=www.youtube.com"
-                  title="En Passant | How to Play Chess"
-                  allow="accelerometer;  autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              )}
+
+              <iframe
+                id="7"
+                src="https://www.youtube.com/embed/c_KRIH0wnhE?origin=www.youtube.com"
+                title="En Passant | How to Play Chess"
+                allow="accelerometer;  autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+
               <p>
                 This special move must be done immediately after the first pawn
                 has moved past, otherwise the option to capture it is no longer
@@ -284,7 +246,7 @@ const HowToPlay = () => {
                 this odd, but important rule.
               </p>
             </div>
-            <div ref={(element) => (elementRefs.current[7] = element)}>
+            <div>
               <p className="text-2xl">How To Move The Pawn In Chess</p>
               <p>
                 One other special chess rule is called castling. This move
@@ -305,7 +267,6 @@ const HowToPlay = () => {
                 <li>-the king may not be in check or pass through check</li>
               </ul>
               <iframe
-                ref={(element) => (elementRefs.current[7] = element)}
                 id="8"
                 src="https://www.youtube.com/embed/FcLYgXCkucc?origin=www.youtube.com"
                 title="Castling | How to Play Chess"
@@ -335,7 +296,7 @@ const HowToPlay = () => {
             </p>
           </li>
           <li id="step5">
-            <div ref={(element) => (elementRefs.current[8] = element)}>
+            <div>
               <p className="text-4xl">
                 5. The Rules Of How To Win A Game Of Chess
               </p>
@@ -350,7 +311,6 @@ const HowToPlay = () => {
                 of check.
               </p>
               <iframe
-                ref={(element) => (elementRefs.current[8] = element)}
                 id="9"
                 src="https://www.youtube.com/embed/lBsWZqv5acI?origin=www.youtube.com"
                 title="Check | How to Play Chess"
@@ -366,7 +326,6 @@ const HowToPlay = () => {
                 <li>- capture the piece threatening the king.</li>
               </ul>
               <iframe
-                ref={(element) => (elementRefs.current[9] = element)}
                 id="10"
                 src="https://www.youtube.com/embed/vjJkdBXVgsk?origin=www.youtube.com"
                 title="Getting Out Of Check | How to Play Chess #shorts"
@@ -379,7 +338,6 @@ const HowToPlay = () => {
                 the game is simply declared over.
               </p>
               <iframe
-                ref={(element) => (elementRefs.current[10] = element)}
                 id="11"
                 src="https://www.youtube.com/embed/uu7ISsU-Ufw?origin=www.youtube.com"
                 title="Checkmate | How to Play Chess #shorts"
@@ -393,7 +351,6 @@ const HowToPlay = () => {
                 moves.{" "}
               </p>
               <iframe
-                ref={(element) => (elementRefs.current[12] = element)}
                 id="12"
                 src="https://www.youtube.com/embed/5qY3aIp4sTw?origin=www.youtube.com"
                 title="The Fastest Checkmates in Chess"
@@ -411,7 +368,6 @@ const HowToPlay = () => {
                 another legal move:
               </p>
               <iframe
-                ref={(element) => (elementRefs.current[13] = element)}
                 id="13"
                 src="https://www.youtube.com/embed/DoGVxiU2VFI?origin=www.youtube.com"
                 title="Stalemate | How to Play Chess"
@@ -433,7 +389,6 @@ const HowToPlay = () => {
                 has moved a pawn or captured a piece
               </p>
               <iframe
-                ref={(element) => (elementRefs.current[14] = element)}
                 id="14"
                 src="https://www.youtube.com/embed/O8cb34ADUCE?origin=www.youtube.com"
                 title="Draws | How to Play Chess"
