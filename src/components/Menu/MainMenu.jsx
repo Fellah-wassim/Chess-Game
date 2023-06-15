@@ -12,20 +12,44 @@ import strategyPic from "../../assets/mainMenu/strategy.png";
 import Menu from "./Menu.jsx";
 import Play from "./Play.jsx";
 
+const socialData = [
+  {
+    name: "github",
+    link: "https://github.com/Fellah-wassim",
+    src: githubIcon,
+  },
+  {
+    name: "instagram",
+    link: "https://www.instagram.com/wassim.fellah/",
+    src: instagramIcon,
+  },
+  {
+    name: "facebook",
+    link: "https://www.facebook.com/wassimcraizy.box?mibextid=ZbWKwL",
+    src: fbIcon,
+  },
+  {
+    name: "linkedin",
+    link: "https://www.linkedin.com/in/wassim-fellah-921a5921a/",
+    src: linkedinIcon,
+  },
+];
+
+const backgroundsURL = [
+  "https://images.pexels.com/photos/163427/chess-figure-game-play-163427.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "https://images.pexels.com/photos/6114987/pexels-photo-6114987.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "https://images.pexels.com/photos/10626015/pexels-photo-10626015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "https://images.pexels.com/photos/277092/pexels-photo-277092.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "https://images.pexels.com/photos/1576849/pexels-photo-1576849.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "https://images.pexels.com/photos/129742/pexels-photo-129742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 ",
+  "https://images.pexels.com/photos/6114992/pexels-photo-6114992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "https://images.pexels.com/photos/6792174/pexels-photo-6792174.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+];
+
 const MainMenu = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [backgroundMusic] = useState(new Audio(principalMusic));
   const [backgroundMusicRunning, setBackgroundMusicRunning] = useState(false);
-  const backgroundsURL = [
-    "https://images.pexels.com/photos/163427/chess-figure-game-play-163427.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "https://images.pexels.com/photos/6114987/pexels-photo-6114987.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "https://images.pexels.com/photos/10626015/pexels-photo-10626015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "https://images.pexels.com/photos/277092/pexels-photo-277092.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "https://images.pexels.com/photos/1576849/pexels-photo-1576849.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "https://images.pexels.com/photos/129742/pexels-photo-129742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 ",
-    "https://images.pexels.com/photos/6114992/pexels-photo-6114992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "https://images.pexels.com/photos/6792174/pexels-photo-6792174.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  ];
 
   useEffect(() => {
     const title = currentPage
@@ -136,34 +160,17 @@ const MainMenu = () => {
         )}
 
         <div className="flex gap-2">
-          <a href="https://github.com/Fellah-wassim" target="blank">
-            <img
-              src={githubIcon}
-              alt="github icon"
-              className="social-media-icons w-[30px]"
-            />
-          </a>
-          <a href="https://www.linkedin.com/in/wassim-fellah-921a5921a/">
-            <img
-              src={instagramIcon}
-              alt="instagram Icon"
-              className="social-media-icons w-[30px]"
-            />
-          </a>
-          <a href="https://www.facebook.com/wassimcraizy.box?mibextid=ZbWKwL">
-            <img
-              src={fbIcon}
-              alt="facebook icon"
-              className="social-media-icons w-[30px]"
-            />
-          </a>
-          <a href="https://www.linkedin.com/in/wassim-fellah-921a5921a/">
-            <img
-              src={linkedinIcon}
-              alt="linkedin icon"
-              className="social-media-icons w-[30px]"
-            />
-          </a>
+          {socialData.map((social, index) => {
+            return (
+              <a href={social.link} target="blank">
+                <img
+                  src={social.src}
+                  alt={`${social.name} Icon`}
+                  className={`${social.name}Icon social-media-icons w-[30px]`}
+                />
+              </a>
+            );
+          })}
         </div>
 
         <img
