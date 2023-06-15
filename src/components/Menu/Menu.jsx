@@ -17,12 +17,12 @@ function Menu(props) {
           </button>
         </li>
       </Link>
-      <Link to="/">
-        <li onClick={props.pauseBackgroundMusic}>
+      <Link to="/" /*onClick={props.pauseBackgroundMusic }*/>
+        <li>
           <p>More Games</p>
         </li>
       </Link>
-      <Link to="/" onClick={props.pauseBackgroundMusic}>
+      <Link to="/" /*onClick={props.pauseBackgroundMusic }*/>
         <li>
           <p>Contact Me</p>
         </li>
