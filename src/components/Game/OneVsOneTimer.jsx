@@ -193,7 +193,7 @@ const OneVsOneTimer = () => {
   };
 
   return (
-    <div className="h-[100vh] bg-secondBlack relative">
+    <div className="min-h-[100vh] bg-secondBlack relative">
       <GameNav
         undoMove={undoMove}
         resetChessBoard={resetChessBoard}
